@@ -15,6 +15,9 @@ rockBtn.addEventListener("click", () => {
         rockBtn.classList.remove("buttonPressed")
         rockBtn.classList.add("button")
     }, 250)
+    setTimeout(() => {
+        game(3)
+    }, 100)
 })
 
 paperBtn.addEventListener("click", () => {
@@ -24,6 +27,9 @@ paperBtn.addEventListener("click", () => {
         paperBtn.classList.remove("buttonPressed")
         paperBtn.classList.add("button")
     }, 250)
+    setTimeout(() => {
+        game(2)
+    }, 100)
 })
 
 scissorsBtn.addEventListener("click", () => {
@@ -33,32 +39,34 @@ scissorsBtn.addEventListener("click", () => {
         scissorsBtn.classList.remove("buttonPressed")
         scissorsBtn.classList.add("button")
     }, 250)
+    setTimeout(() => {
+        game(1)
+    }, 100)
 })
 
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function match(pointsRequired){
-    let i = 0;
-    while(userPoints<pointsRequired && botPoints<pointsRequired ){
-        i+=1
-        game(i)
-    }
-    console.log("The match has ended on game " + i)
-    console.log("And the results are")
-    console.log("..................................")
-    if(botPoints>userPoints){
-        setTimeout(console.log("You lost the match :("), 5000)
-    } else if(userPoints>botPoints){
-        setTimeout(console.log("You won the match :)"), 5000)
-    }
-    console.log("The end score is " + userPoints + " : " + botPoints + " for you!")
-    console.log("I hope you had fun!")
-}
-function game(gameNumber){
+// function match(pointsRequired){
+//     let i = 0;
+//     while(userPoints<pointsRequired && botPoints<pointsRequired ){
+//         i+=1
+//         game(i)
+//     }
+//     console.log("The match has ended on game " + i)
+//     console.log("And the results are")
+//     console.log("..................................")
+//     if(botPoints>userPoints){
+//         setTimeout(console.log("You lost the match :("), 5000)
+//     } else if(userPoints>botPoints){
+//         setTimeout(console.log("You won the match :)"), 5000)
+//     }
+//     console.log("The end score is " + userPoints + " : " + botPoints + " for you!")
+//     console.log("I hope you had fun!")
+// }
+function game(userWeapon){
     let botweapon = randomInt(1,3);
-    console.log("Game number " + gameNumber)
     // let userWeapon = parseInt(prompt("What weapon do you choose? 1 = Scissors 2 = Paper 3 = Rock. Please input 1, 2 or 3."))
     switch(userWeapon){
         case 1:
