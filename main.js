@@ -4,6 +4,36 @@ let rock = 3;
 let botPoints = 0;
 let userPoints = 0;
 let matchPoints = 5;
+const rockBtn = document.getElementById("rockBtn")
+const paperBtn = document.getElementById("paperBtn")
+const scissorsBtn = document.getElementById("scissorsBtn")
+
+rockBtn.addEventListener("click", () => {
+    rockBtn.classList.add("buttonPressed")
+    rockBtn.classList.remove("button")
+    setTimeout(() => {
+        rockBtn.classList.remove("buttonPressed")
+        rockBtn.classList.add("button")
+    }, 250)
+})
+
+paperBtn.addEventListener("click", () => {
+    paperBtn.classList.add("buttonPressed")
+    paperBtn.classList.remove("button")
+    setTimeout(() => {
+        paperBtn.classList.remove("buttonPressed")
+        paperBtn.classList.add("button")
+    }, 250)
+})
+
+scissorsBtn.addEventListener("click", () => {
+    scissorsBtn.classList.add("buttonPressed")
+    scissorsBtn.classList.remove("button")
+    setTimeout(() => {
+        scissorsBtn.classList.remove("buttonPressed")
+        scissorsBtn.classList.add("button")
+    }, 250)
+})
 
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)

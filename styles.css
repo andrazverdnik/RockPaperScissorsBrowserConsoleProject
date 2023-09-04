@@ -15,6 +15,7 @@ body {
     align-items: center;
     flex-grow: 1;
     margin-top: 0;
+    max-height: 200px;
 }
 .title {
     color: yellow;
@@ -23,7 +24,9 @@ body {
 }
 
 #centerPart {
+    min-height: 500px;
     display: flex;
+    align-items: center;
     background-color: antiquewhite;
     justify-content: center;
 }
@@ -72,4 +75,31 @@ body {
     color: green;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.buttons {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    max-height: 200px;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 200px;
+    border: 0;
+    border-radius: 5%;
+    
+}
+
+.buttonPressed {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    color: white;
+    border: 6px solid red;
+    border-radius: 5%;
 }
