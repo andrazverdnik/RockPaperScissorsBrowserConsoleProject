@@ -3,11 +3,12 @@ let paper = 2;
 let rock = 3;
 let botPoints = 0;
 let userPoints = 0;
-let matchPoints = 0;
+let matchPoints = 5;
 
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
 function match(pointsRequired){
     let i = 0;
     while(userPoints<pointsRequired && botPoints<pointsRequired ){
@@ -28,7 +29,7 @@ function match(pointsRequired){
 function game(gameNumber){
     let botweapon = randomInt(1,3);
     console.log("Game number " + gameNumber)
-    let userWeapon = parseInt(prompt("What weapon do you choose? 1 = Scissors 2 = Paper 3 = Rock. Please input 1, 2 or 3."))
+    // let userWeapon = parseInt(prompt("What weapon do you choose? 1 = Scissors 2 = Paper 3 = Rock. Please input 1, 2 or 3."))
     switch(userWeapon){
         case 1:
             console.log("You have selected scissors")
@@ -74,5 +75,5 @@ function game(gameNumber){
     }
     setTimeout(console.log("Currently, you have " + userPoints + " and your opponent has " + botPoints + " points"),10000)
 }
-matchPoints = parseInt(prompt("How many points will be required for VICTORY?"))
+// matchPoints = parseInt(prompt("How many points will be required for VICTORY?"))
 match(matchPoints)
