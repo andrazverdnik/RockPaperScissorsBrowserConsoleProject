@@ -4,6 +4,8 @@ let rock = 3;
 let botPoints = 0;
 let userPoints = 0;
 let matchPoints = 5;
+let battleRes = document.getElementById("battleResText")
+let battleResRep = document.getElementById("battleResRep")
 const rockBtn = document.getElementById("rockBtn")
 const paperBtn = document.getElementById("paperBtn")
 const scissorsBtn = document.getElementById("scissorsBtn")
@@ -44,6 +46,7 @@ scissorsBtn.addEventListener("click", () => {
     }, 100)
 })
 
+
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -81,34 +84,37 @@ function game(userWeapon){
     }
     switch(botweapon){
         case 1:
+            battleResRep.textContent = "Your opponent has selected scissors"
             console.log("Your opponent has selected scissors")
             break;
         case 2:
+            battleResRep.textContent = "Your opponent has selected paper"
             console.log("Your opponent has selected paper")
             break;
         case 3:
+            battleResRep.textContent = "Your opponent has selected rock"
             console.log("Your opponent has selected rock")
             break;
     }
     if(userWeapon == botweapon) {
-        console.log("It's a DRAW!")
+        battleRes.textContent = "It's a DRAW!"
     } else if(userWeapon == 1 && botweapon == 2){
-        console.log("You WIN!")
+        battleRes.textContent = "You WIN!"
         userPoints+=1
     } else if(userWeapon == 2 && botweapon == 3){
-        console.log("You WIN!")
+        battleRes.textContent = "You WIN!"
         userPoints+=1
     } else if(userWeapon == 3 && botweapon == 1){
-        console.log("You WIN!")
+        battleRes.textContent = "You WIN!"
         userPoints+=1
     } else if(userWeapon == 2 && botweapon == 1){
-        console.log("Aww, you lost.")
+        battleRes.textContent = "You loose"
         botPoints+=1
     } else if(userWeapon == 3 && botweapon == 2){
-        console.log("Aww, you lost.")
+        battleRes.textContent = "You loose."
         botPoints+=1
     } else if(userWeapon == 1 && botweapon == 3){
-        console.log("Aww, you lost.")
+        battleRes.textContent = "You loose."
         botPoints+=1
     }
     setTimeout(console.log("Currently, you have " + userPoints + " and your opponent has " + botPoints + " points"),10000)
