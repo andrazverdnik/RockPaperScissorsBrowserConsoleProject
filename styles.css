@@ -112,6 +112,11 @@ body {
     font-size: xx-large;
 }
 
-#battleResRep {
-    margin-top: 75px;
+.battleResults {
+    text-align: center;
 }
+
+#battleResRep {
+    text-align: center;
+}
+

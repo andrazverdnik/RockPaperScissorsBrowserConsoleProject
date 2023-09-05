@@ -4,11 +4,31 @@ let rock = 3;
 let botPoints = 0;
 let userPoints = 0;
 let matchPoints = 5;
+let gamestate = 1;
+let battleResPoints = document.getElementById("battleResPoints")
 let battleRes = document.getElementById("battleResText")
 let battleResRep = document.getElementById("battleResRep")
+let matchEndText = document.getElementById("matchEndText")
+let retryButton = document.createElement("button")
+const centerPart = document.getElementById("centerPart")
 const rockBtn = document.getElementById("rockBtn")
 const paperBtn = document.getElementById("paperBtn")
 const scissorsBtn = document.getElementById("scissorsBtn")
+
+retryButton.classList.add("button")
+retryButton.textContent = "Retry?"
+
+retryButton.addEventListener("click", () => {
+    retryButton.classList.add("buttonPressed")
+    retryButton.classList.remove("button")
+    setTimeout(() => {
+        rocretryButton.classList.remove("buttonPressed")
+        retryButton.classList.add("button")
+    }, 250)
+    setTimeout(() => {
+        location.reload()
+    }, 100)
+})
 
 rockBtn.addEventListener("click", () => {
     rockBtn.classList.add("buttonPressed")
@@ -46,6 +66,26 @@ scissorsBtn.addEventListener("click", () => {
     }, 100)
 })
 
+function checkForMatchEnd() {
+    if(userPoints == 5 || botPoints == 5){
+        if(gamestate == 1){
+            gamestate = 0
+            rockBtn.remove()
+            paperBtn.remove()
+            scissorsBtn.remove()
+            centerPart.append(retryButton)
+            if (userPoints == 5){
+                matchEndText.textContent = "You won the match!"
+            } else {
+                matchEndText.textContent = "You lost the match."
+            }
+        }
+    }
+}
+
+function reportPoints(){
+    battleResPoints.textContent = "You:" + userPoints + " Oponnent:" + botPoints
+}
 
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -118,6 +158,8 @@ function game(userWeapon){
         botPoints+=1
     }
     setTimeout(console.log("Currently, you have " + userPoints + " and your opponent has " + botPoints + " points"),10000)
+    reportPoints()
+    checkForMatchEnd()
 }
 // matchPoints = parseInt(prompt("How many points will be required for VICTORY?"))
-match(matchPoints)
+// match(matchPoints)
