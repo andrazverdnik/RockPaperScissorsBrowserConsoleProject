@@ -18,6 +18,7 @@ body {
     max-height: 200px;
 }
 .title {
+    text-align: center;
     color: yellow;
     font-size: 36px;
     font-weight: bolder;
